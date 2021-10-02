@@ -17,13 +17,6 @@ public class Stack<T> {
         if(top == null){
             throw new EmptyStackException();
         }
-        T item
-    }
-
-    public T top() {
-        if (top == null) {
-            throw new EmptyStackException();
-        }
         T item = top.data;
         top = top.next;
         return item;
@@ -39,5 +32,9 @@ public class Stack<T> {
             throw new EmptyStackException();
         }
         return top.data;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
     }
 }
