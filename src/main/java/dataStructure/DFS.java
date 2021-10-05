@@ -3,11 +3,6 @@ package dataStructure;
 import java.util.LinkedList;
 
 class Graph{
-    class Node{
-        int data;
-        LinkedList<Node> adjecent;
-        boolean marked;
-    }
 
     void addEdge(int i1, int i2){
 
@@ -22,7 +17,14 @@ public class DFS {
         stack.push(3);
         stack.push(4);
 
-        System.out.println(stack.);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
+
 
     }
 }
