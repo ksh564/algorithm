@@ -1,4 +1,4 @@
-package exam;
+package exam.greedy;
 
 import javafx.scene.transform.Scale;
 

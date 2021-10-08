@@ -1,4 +1,4 @@
-package exam;
+package exam.greedy;
 
 import java.util.Iterator;
 import java.util.Scanner;
