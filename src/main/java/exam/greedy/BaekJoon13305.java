@@ -23,7 +23,7 @@ public class BaekJoon13305 {
            if(min >= cost){
                min = cost;
            }
-           result += cost * Long.parseLong((arrayRoads[i]));
+           result += min * Long.parseLong((arrayRoads[i]));
        }
        System.out.println(result);
    }

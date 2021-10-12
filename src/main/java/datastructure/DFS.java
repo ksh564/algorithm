@@ -1,6 +1,4 @@
-package dataStructure;
-
-import java.util.LinkedList;
+package datastructure;
 
 class Graph{
 
