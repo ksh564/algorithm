@@ -34,7 +34,6 @@ public class BaekJoon2178 {
     public static int bfs(int x, int y){
         Queue<Pointer> queue = new LinkedList<>();
         queue.offer(new Pointer(x,y));
-        // 벽에 부딪힐때
 
         while (!queue.isEmpty()){
            Pointer pointer = queue.poll();
@@ -43,12 +42,12 @@ public class BaekJoon2178 {
            for(int i=0; i<4; i++){
                int currX = x + dx[i];
                int currY = y + dy[i];
-                //공간 확인
+
                 if(currX < 0 || currY < 0 || currX >= N || currY >= M)
                     continue;
                 if(maps[currX][currY] == 0)
                     continue;
-                // 벽확인
+
                if(maps[currX][currY] == 1){
                    maps[currX][currY] = maps[x][y] + 1;
                    queue.offer(new Pointer(currX,currY));
