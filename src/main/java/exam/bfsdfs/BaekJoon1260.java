@@ -1,4 +1,4 @@
-package exam.greedy;
+package exam.bfsdfs;
 
 import org.omg.PortableInterceptor.INACTIVE;
 
@@ -26,6 +26,7 @@ public class BaekJoon1260 {
             int start = scanner.nextInt();
             int arrived = scanner.nextInt();
             maps[start][arrived] = 1;
+            maps[arrived][start] = 1;
         }
         System.out.println("DFS Start");
         dfs(V);
@@ -38,15 +39,15 @@ public class BaekJoon1260 {
     public static void dfs(int point){
         Stack stack = new Stack();
         stack.push(point);
-        visited[point] = true;
-        System.out.print(point + "->");
 
         while (!stack.isEmpty()){
-            int index = (int) stack.peek();
-            stack.pop();
-            for(int i=1; i<=N; i++){
+            int index = (int) stack.pop();
+            if(visited[index]) continue;
+            visited[index] = true;
+            System.out.print(index + "->");
+            for(int i=N; i>=1; i--){
                 if(maps[index][i] == 1 && visited[i] == false){
-                    dfs(i);
+                   stack.push(i);
                 }
             }
         }
