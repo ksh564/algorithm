@@ -3,7 +3,7 @@ package exam.bfsdfs;
 import java.awt.*;
 import java.util.*;
 
-public class BaekJoon2580 {
+public class BaekJoon2583 {
     static int M,N,K,count;
     static int[] dx = {1,-1,0,0};
     static int[] dy = {0,0,-1,1};
@@ -26,10 +26,6 @@ public class BaekJoon2580 {
             int preY = Integer.parseInt(inputStr[1]);
             int nextX = Integer.parseInt(inputStr[2]);
             int nextY = Integer.parseInt(inputStr[3]);
-//          int preX = scanner.nextInt();
-//          int preY = scanner.nextInt();
-//          int nextX = scanner.nextInt();
-//          int nextY = scanner.nextInt();
 
           for(int j=preY; j<nextY; j++){
               for(int k=preX; k<nextX; k++){
@@ -41,7 +37,7 @@ public class BaekJoon2580 {
         for(int i=0; i<M; i++){
             for(int j=0; j<N; j++){
                 count = 0;
-                if(getSquare(i,j) == true){
+                if(getSquare(j,i) == true){
                 }
                 if(count > 0){
                     arrayList.add(count);
@@ -50,8 +46,12 @@ public class BaekJoon2580 {
         }
         Collections.sort(arrayList);
         System.out.println(arrayList.size());
-        for(int input : arrayList){
-            System.out.print(input+" ");
+        for(int i=0; i<arrayList.size(); i++){
+            if(i == arrayList.size()-1){
+                System.out.print(arrayList.get(i));
+            } else {
+                System.out.print(arrayList.get(i)+" ");
+            }
         }
     }
 
@@ -71,6 +71,4 @@ public class BaekJoon2580 {
         }
         return false;
     }
-
-
 }
