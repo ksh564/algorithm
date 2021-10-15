@@ -1,5 +1,10 @@
 package exam.bfsdfs;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
 public class BaekJoon1987 {
 //    문제
 //    세로 R칸, 가로 C칸으로 된 표 모양의 보드가 있다.
@@ -15,4 +20,58 @@ public class BaekJoon1987 {
 //
 //    출력
 //    첫째 줄에 말이 지날 수 있는 최대의 칸 수를 출력한다.
+
+    static int R,C;
+    static int[] dx = {1,-1,0,0};
+    static int[] dy = {0,0,-1,1};
+    static String[][] maps;
+    static boolean[][] visited;
+    static ArrayList<String> visitedMark;
+    static int count;
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        R = scanner.nextInt(); // 세로
+        C = scanner.nextInt(); // 가로
+        scanner.nextLine();
+
+        maps = new String[R][C];
+        visited = new boolean[R][C];
+
+        for(int i=0; i<R; i++){
+            String str = scanner.nextLine();
+            for(int j=0; j<str.length(); j++){
+                maps[i][j] = Character.toString(str.charAt(j));
+            }
+        }
+
+        visitedMark = new ArrayList<>();
+        count = 1;
+        move(0,0);
+        System.out.println(count);
+    }
+
+    public static void move(int x, int y){
+        // 지나온 모
+
+        // 벽에 부딪히는 케이스
+        if(x < 0 || y < 0 || x >= C-1 || y >= R-1){
+            return;
+        }
+
+        for(int i=0; i<4; i++){
+
+            for(int j=0; j<visitedMark.size(); j++){
+                if(visitedMark.get(j).equals(maps[y+dy[i]][x + dx[i]])){
+                    visited[y+dy[i]][x + dx[i]] = true;
+                    continue;
+                }
+            }
+            visited[y+dy[i]][x + dx[i]] = true;
+            count++;
+            visitedMark.add(maps[y+dy[i]][x + dx[i]]);
+            move(x + dx[i],y+dy[i]);
+            return;
+        }
+    }
 }
