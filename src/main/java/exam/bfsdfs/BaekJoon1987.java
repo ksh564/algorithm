@@ -27,7 +27,7 @@ public class BaekJoon1987 {
     static String[][] maps;
     static boolean[][] visited;
     static ArrayList<String> visitedMark;
-    static int count;
+    static int count, count2;
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -48,11 +48,12 @@ public class BaekJoon1987 {
         visitedMark = new ArrayList<>();
         count = 1;
         move(0,0);
-        System.out.println(count);
+
     }
 
     public static void move(int x, int y){
         // 지나온 모
+
 
         // 벽에 부딪히는 케이스
         if(x < 0 || y < 0 || x >= C-1 || y >= R-1){
@@ -61,14 +62,16 @@ public class BaekJoon1987 {
 
         for(int i=0; i<4; i++){
 
-            for(int j=0; j<visitedMark.size(); j++){
-                if(visitedMark.get(j).equals(maps[y+dy[i]][x + dx[i]])){
-                    visited[y+dy[i]][x + dx[i]] = true;
+            for(int j=0; j<visitedMark.size(); j++) {
+                if (x + dx[i] < 0 || y + dy[i] < 0 || x + dx[i] >= C - 1 || y + dy[i] >= R - 1) {
+                    continue;
+                }
+                if (visitedMark.get(j).equals(maps[y + dy[i]][x + dx[i]])) {
+                    visited[y + dy[i]][x + dx[i]] = true;
                     continue;
                 }
             }
             visited[y+dy[i]][x + dx[i]] = true;
-            count++;
             visitedMark.add(maps[y+dy[i]][x + dx[i]]);
             move(x + dx[i],y+dy[i]);
             return;
