@@ -1,4 +1,4 @@
-package exam;
+package exam.bfsdfs;
 
 import org.omg.PortableInterceptor.INACTIVE;
 

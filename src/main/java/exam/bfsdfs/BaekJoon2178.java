@@ -1,4 +1,4 @@
-package exam;
+package exam.bfsdfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
