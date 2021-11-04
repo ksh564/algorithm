@@ -33,6 +33,10 @@ public class Dijkstra {
         Arrays.fill(distance, INF);
 
         dijkstra(start);
+
+        for(int i=1; i<=n; i++){
+
+        }
     }
     public static int getSmallestNode(){
         int minValue = INF;
