@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class CodilityTimeComplexity2 {
     public static void main(String[] args) {
-       solution(new int[]{2, 3, 1, 5});
+       solution(new int[]{2, 3, 1, 5 });
     }
     public static int solution(int[] A) {
         // write your code in Java SE 8
