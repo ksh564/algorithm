@@ -1,9 +1,6 @@
 package codility;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Codility04 {
     public static void main(String[] args) {
@@ -29,6 +26,21 @@ public class Codility04 {
         }
         return result;
     }
-
-
+    public static int solution2(int[] A) {
+        // write your code in Java SE 8
+        HashSet<Integer> inputHash = new HashSet<>();
+        for(int i=1; i<=A.length; i++){
+            inputHash.add(i);
+        }
+        for(int i=0; i<A.length; i++){
+            if(inputHash.contains(A[i])){
+                inputHash.remove(A[i]);
+            }
+        }
+        if(inputHash.isEmpty()){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
