@@ -24,6 +24,7 @@ public class Codility10 {
         if(A.length == 3){
             return 0;
         }
+
         ArrayList<Integer> sums = new ArrayList<>();
         for(int i=1; i<A.length-1; i++){
             partialSum = Math.max(partialSum,partialSum+A[i]);
