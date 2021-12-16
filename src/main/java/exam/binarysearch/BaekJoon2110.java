@@ -1,4 +1,4 @@
-package exam.dynamic;
+package exam.binarysearch;
 
 import java.util.Arrays;
 import java.util.Scanner;

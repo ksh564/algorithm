@@ -39,9 +39,7 @@ public class BaekJoon1389 {
                 minIndex = i;
             }
         }
-        System.out.println(minIndex);
     }
-
     public static void floyd(){
         for(int k=1; k<=N; k++){
             for(int i=1; i<=N; i++){
@@ -51,6 +49,4 @@ public class BaekJoon1389 {
             }
         }
     }
-
-
 }

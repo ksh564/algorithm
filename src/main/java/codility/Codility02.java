@@ -19,7 +19,6 @@ public class Codility02 {
                     A = tmpArray;
                     break;
                 }
-
             }
         }
         return A;
