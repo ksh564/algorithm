@@ -34,5 +34,20 @@ public class Codility07 {
             return 0;
         }
     }
+
+    public static int countBlock(int[] blocks){
+        Stack<Integer> blockStack = new Stack();
+        int count = 0;
+        for(int block : blocks){
+            while(!blockStack.isEmpty() && blockStack.peek() > block){
+                blockStack.pop();
+            }
+            if(blockStack.isEmpty() || blockStack.peek() < block){
+                blockStack.push(block);
+                count++;
+            }
+        }
+        return count;
+    }
 }
 // you can also use imports, for example:
