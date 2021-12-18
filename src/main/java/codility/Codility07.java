@@ -49,5 +49,10 @@ public class Codility07 {
         }
         return count;
     }
+    public int checkFish(int[] A, int[] B){
+        int count = 0;
+
+        return count;
+    }
 }
 // you can also use imports, for example:
