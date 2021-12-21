@@ -1,5 +1,6 @@
 package codility;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Codility06 {
@@ -18,5 +19,6 @@ public class Codility06 {
             }
         }
         return 0;
+
     }
 }
