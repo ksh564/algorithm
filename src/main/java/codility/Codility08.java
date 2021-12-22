@@ -38,4 +38,37 @@ public class Codility08 {
         }
         return result;
     }
+
+    public int findEquiLeader(int[] A) {
+        // write your code in Java SE 8
+        Integer maxKey = 0;
+        Integer count = 0;
+        HashMap<Integer,Integer> leaders = new HashMap<>();
+        for(int i=0; i<A.length; i++){
+            if(!leaders.containsKey(A[i])){
+                leaders.put(A[i],1);
+                continue;
+            }
+            Integer leadersCount = leaders.get(A[i]);
+            leadersCount++;
+            leaders.put(A[i],leadersCount);
+            if(count < leadersCount){
+                maxKey = A[i];
+                count = leadersCount;
+            }
+        }
+
+        Integer leaderCount = 0;
+        Integer equiLeaderCount = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i] == maxKey){
+                leaderCount++;
+            }
+            if((leaderCount > (i+1)/2) && (count - leaderCount) > (A.length-(i+1))/2){
+                equiLeaderCount++;
+            }
+        }
+        return equiLeaderCount;
+    }
+
 }
