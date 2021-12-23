@@ -37,4 +37,17 @@ public class Codility10 {
         }
         return sums.get(sums.size()-1)+sums.get(sums.size()-2);
     }
+    public int Factor(int N) {
+        // write your code in Java SE 8
+        int count = 0;
+        for(long i=1; i*i<=N; i++){
+            if(N % i == 0){
+                count++;
+            }
+            if(i * i < N){
+                count++;
+            }
+        }
+        return count;
+    }
 }
