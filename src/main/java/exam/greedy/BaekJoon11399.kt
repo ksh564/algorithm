@@ -1,11 +1,13 @@
 package exam.greedy
-fun main() {
+fun main() = with(System.`in`) {
     val readlineNum = readLine()!!.toInt()
     val arr = Array(readlineNum){ readLine()!!.toInt()}
-
+    arr.sort()
     var sum = 0
-    for(arg in arr){
-        sum += arg
+    var totalSum = 0
+    for(money in arr){
+        sum += money
+        totalSum += sum
     }
-    println("test:$sum")
+    println("test$totalSum////$sum")
 }
