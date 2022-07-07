@@ -3,17 +3,20 @@ package exam.bfsdfs;
 import java.util.*;
 
 public class Programmers43164 {
+    static boolean[] usedTickets;
 
     public static void main(String[] args) {
 
-        String[][] input = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
+//        String[][] input = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
+        String[][] input = {{"ICN", "JFK"}, {"HND", "IAD"}, {"JFK", "HND"}};
         solution(input);
     }
 
     public static String[] solution(String[][] tickets) {
 
         maps = tickets;
-        usedTickets = new boolean[maps.length];
+        usedTickets = new boolean[tickets.length];
+
         String[] answer = {};
         Arrays.sort(tickets, new Comparator<String[]>() {
             @Override
@@ -24,14 +27,16 @@ public class Programmers43164 {
                 } else return o1[0].compareTo(o2[0]);
             }
         });
-        check = true;
-        while (check){
-            count = 0;
-            arrayList = new ArrayList<>();
-            if(bfs(startIndex,arrayList) == maps.length+1){
-              check = false;
-            }
-        }
+        arrayList = new ArrayList<>();
+        dfs("ICN",arrayList);
+//        check = true;
+//        while (check){
+//            count = 0;
+//            arrayList = new ArrayList<>();
+//            if(bfs(startIndex,arrayList) == maps.length+1){
+//              check = false;
+//            }
+//        }
 
         answer = new String[arrayList.size()];
         for (int i=0; i<arrayList.size(); i++){
@@ -40,33 +45,44 @@ public class Programmers43164 {
         return answer;
     }
 
-    public static int bfs(int start, ArrayList<String> output){
+    public static void dfs(String ticket, List<String> answer) {
+        if(usedTickets.length == 0)
+            return;
+       answer.add(ticket);
+       for(int i=0; i<maps.length; i++) {
+           if(ticket.equals(maps[i][0])){
 
-        Queue<String> queue = new LinkedList<>();
-        for(int i=start; i<maps.length; i++){
-            if(maps[i][0].equals("ICN")){
-                queue.offer(maps[i][1]);
-                output.add(maps[i][0]);
-                usedTickets[i] = true;
-                startIndex = i+1;
-                break;
-            }
-        }
-        while (!queue.isEmpty()){
-            String index = queue.poll();
-            output.add(index);
-            count++;
-            for(int i=0; i<maps.length; i++){
-                if(index.equals(maps[i][0]) && usedTickets[i] == false){
-                    usedTickets[i] = true;
-                    queue.offer(maps[i][1]);
-                    break;
-                }
-            }
-        }
-        return count;
+           }
+       }
     }
-    static boolean[] usedTickets;
+
+//    public static int bfs(int start, ArrayList<String> output){
+//
+//        Queue<String> queue = new LinkedList<>();
+//        for(int i=start; i<maps.length; i++){
+//            if(maps[i][0].equals("ICN")){
+//                queue.offer(maps[i][1]);
+//                output.add(maps[i][0]);
+//                usedTickets[i] = true;
+//                startIndex = i+1;
+//                break;
+//            }
+//        }
+//        while (!queue.isEmpty()){
+//            String index = queue.poll();
+//            output.add(index);
+//            count++;
+//            for(int i=0; i<maps.length; i++){
+//                if(index.equals(maps[i][0]) && usedTickets[i] == false){
+//                    usedTickets[i] = true;
+//                    queue.offer(maps[i][1]);
+//                    break;
+//                }
+//            }
+//        }
+//        return count;
+//    }
+
     static String[][] maps;
     static ArrayList<String> arrayList;
     static int count, startIndex = 0;

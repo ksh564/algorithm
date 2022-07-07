@@ -22,7 +22,7 @@ public class Kakao72411 {
                 int courseCount = course[j];
                 boolean[] visted = new boolean[courseCount];
                 for(int i=0; i<orders.length; i++){
-                    combination(orders[i],visted,orders[i].length(),courseCount);
+//                    combination(orders[i],visted,orders[i].length(),courseCount);
                 }
             }
     }

@@ -18,7 +18,7 @@ public class Dijkstra {
         m = scanner.nextInt();
         start = scanner.nextInt();
 
-        // 그래프 초기화
+
         for (int i=0; i<=n; i++){
             graph.add(new ArrayList<NodeOfDijkstra>());
         }

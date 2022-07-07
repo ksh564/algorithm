@@ -21,10 +21,10 @@ object BaekJoon1260 {
             maps[start][arrived] = 1
             maps[arrived][start] = 1
         }
-        println("DFS Start")
+
         dfs(V)
+        println()
         visited = BooleanArray(N + 1)
-        println("BFS Start")
         bfs(V)
     }
 
@@ -35,7 +35,7 @@ object BaekJoon1260 {
             val index = stack.pop() as Int
             if (visited[index]) continue
             visited[index] = true
-            print("$index->")
+            print("$index ")
             for (i in N downTo 1) {
                 if (maps[index][i] == 1 && !visited[i]) {
                     stack.push(i)
@@ -50,7 +50,7 @@ object BaekJoon1260 {
         while (!queue.isEmpty()) {
             val index = queue.poll()
             visited[index] = true
-            print("$index->")
+            print("$index ")
             for (i in 1..N) {
                 if (maps[index][i] == 1 && !visited[i]) {
                     queue.offer(i)
