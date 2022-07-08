@@ -1,4 +1,5 @@
 package programmers;
+
 //문제 설명
 //        조이스틱으로 알파벳 이름을 완성하세요. 맨 처음엔 A로만 이루어져 있습니다.
 //        ex) 완성해야 하는 이름이 세 글자면 AAA, 네 글자면 AAAA
@@ -25,8 +26,30 @@ package programmers;
 //        "JEROEN"	56
 //        "JAN"	23
 public class lessons42860 {
-    public int solution(String name) {
+    public static void main(String[] args) {
+        String test = "JEROEN";
+        System.out.println(solution(test));
+    }
+
+    public static int solution(String name) {
         int answer = 0;
+        boolean includeNotA = false;
+        int nameJump = Integer.MAX_VALUE;
+        for (int i = 0; i < name.length(); i++) {
+            answer += returnMove(name.charAt(i));
+            int next = i+1;
+            while(next<name.length() && name.charAt(next) == 'A')
+                next++;
+
+            nameJump = Math.min(nameJump, i+name.length() - next + i);
+        }
+        answer += nameJump;
+
         return answer;
     }
+
+    public static int returnMove(Character input) {
+        return Math.min(input - 'A', 26 - (input - 'A'));
+    }
+
 }
